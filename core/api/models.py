@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.enums import Choices
@@ -24,7 +25,8 @@ class equipment(models.Model):
 
 class Exercise(models.Model):
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(Category, on_delete=CASCADE, null=True)
+    # category = models.ForeignKey(Category, on_delete=CASCADE, null=True) - Original model relationship
+    category = models.ManyToManyField(Category)
     muscleGroup = models.ManyToManyField(MuscleGroup)
     equipment = models.ManyToManyField(equipment)
 
