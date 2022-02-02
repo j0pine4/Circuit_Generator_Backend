@@ -1,0 +1,1 @@
+django_secret_key = 'django-insecure-rda+_8=dye!u#v=u39#$to=6@ozp-yta_emzcedq3uo*j7ms1p'
