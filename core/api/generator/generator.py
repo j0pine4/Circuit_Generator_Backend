@@ -5,11 +5,26 @@ def generate():
 
     workout = {
         'category' : {
-            'Upper Body Push': '',
-            'Upper Body Pull': '',
-            'Lower Body Push': '',
-            'Lower Body Pull': '',
-            'Core':''
+            'Upper Body Push': {
+                'id': '',
+                'name': ''
+            },
+            'Upper Body Pull': {
+                'id': '',
+                'name': ''
+            },
+            'Lower Body Push': {
+                'id': '',
+                'name': ''
+            },
+            'Lower Body Pull': {
+                'id': '',
+                'name': ''
+            },
+            'Core':{
+                'id': '',
+                'name': ''
+            }
         },
     }
     
@@ -23,8 +38,10 @@ def generate():
 
 
     for category in workout['category']:
-        exercises = Exercise.objects.filter(category__name=category)
-        workout['category'][category] = str(random.choice(exercises))
+        exercises = Exercise.objects.filter(category__name=category).values_list('id', 'name')
+        exercise = random.choice(exercises)
+        workout['category'][category]['id'] = exercise[0]
+        workout['category'][category]['name'] = exercise[1]
 
     return workout
 

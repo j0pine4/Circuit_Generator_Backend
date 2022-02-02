@@ -11,14 +11,20 @@ from django.http import HttpResponse
 
 # Create your views here.
 class ExerciseViewSet(viewsets.ModelViewSet):
-
     queryset = Exercise.objects.all()
     serializer_class = ReadExerciseSerializer
 
 class WorkoutViewSet(viewsets.ModelViewSet):
-
     queryset =  Workout.objects.all()
     serializer_class = ReadWorkoutSerializer
+
+class MuscleGroupsViewSet(viewsets.ModelViewSet):
+    queryset =  MuscleGroup.objects.all()
+    serializer_class = MuscleGroupSerializer
+
+class EquipmentViewSet(viewsets.ModelViewSet):
+    queryset =  equipment.objects.all()
+    serializer_class = EquipmentSerializer
 
 # Generator View
 @api_view(["GET", "POST"])

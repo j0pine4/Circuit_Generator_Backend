@@ -21,6 +21,8 @@ from rest_framework import routers
 router = routers.DefaultRouter()
 router.register('exercises', ExerciseViewSet, basename='exercise')
 router.register('workouts', WorkoutViewSet, basename='workout')
+router.register('musclegroups', MuscleGroupsViewSet, basename='musclegroup')
+router.register('equipment', EquipmentViewSet, basename='equipment')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

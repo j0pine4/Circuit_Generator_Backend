@@ -6,6 +6,7 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = (
+            'id',
             'name',
         )
 
@@ -13,6 +14,15 @@ class MuscleGroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = MuscleGroup
         fields = (
+            'id',
+            'name',
+        )
+
+class EquipmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = equipment
+        fields = (
+            'id',
             'name',
         )
 
@@ -25,6 +35,7 @@ class ReadExerciseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exercise
         fields = (
+            'id',
             'name',
             'category',
             'muscleGroup'
@@ -38,5 +49,6 @@ class ReadWorkoutSerializer(serializers.ModelSerializer):
     class Meta:
         model = Workout
         fields = (
+            'id',
             'exercise',
         )
