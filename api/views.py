@@ -1,11 +1,12 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render
+
 from .models import *
 from .serializers import *
 from rest_framework import viewsets
 import json
 
-from api.generator.generator import generate
+from api.generator.generator import generate, exerciseList, customWorkout
 from rest_framework.decorators import api_view
 from django.http import HttpResponse
 
@@ -34,8 +35,18 @@ def runMe(request):
     # generate(['dumbbell', 'kettle_bell'])
 
     if request.method == "POST":
-        return HttpResponse("Workout Test")
+        workout = customWorkout(equipmentList=['body_weight', 'kettle_bell'])
+        return HttpResponse(json.dumps(workout))
+        # return HttpResponse("Hello")
 
     workout = generate()
     return HttpResponse(json.dumps(workout))
+
+# Generator View
+@api_view(["GET", "POST"])
+def exerciseListView(request):
+
+
+    list = exerciseList()
+    return HttpResponse(json.dumps(list))
 

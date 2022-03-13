@@ -26,5 +26,6 @@ router.register('equipment', EquipmentViewSet, basename='equipment')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('run', runMe, name='run')
+    path('run', runMe, name='run'),
+    path('exerciselist', exerciseListView, name='exerciselist')
 ] + router.urls
